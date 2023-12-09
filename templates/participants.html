@@ -29,45 +29,50 @@
                     <label class="label-disagree-term" id="fetch_message_failed"></label>
                 </div>
                 <div class="full-width">
-                    <ul id="name_content">
-                        {% for d in data %}
-                        {% if d.name %}
-                        <li>{{ d.name }}</li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="full-width">
-                    <ul id="email_content">
+                    <h3> Tentative Participants</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in data %}
+                            {% if d.name and d.email %}
+                            <tr>
+                                <td>{{ d.name }}</td>
+                                <td>{{ d.email }}</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <style>
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                        }
 
-                    </ul>
+                        th,
+                        td {
+                            padding: 8px;
+                            text-align: left;
+                            border-bottom: 1px solid #ddd;
+                        }
+
+                        th {
+                            background-color: #f2f2f2;
+                        }
+
+                        tr:hover {
+                            background-color: #f5f5f5;
+                        }
+                    </style>
                 </div>
             </div>
         </section>
     </div>
-
-    <!-- JS -->
-    <script src="{{ url_for('static', filename= 'vendor/jquery/jquery.min.js') }}"></script>
-
-    <script type="text/javascript">
-        console.log("status", data);
-        if (data)
-        {
-            $("#fetch_message").text("Data fetched successfully.");
-            $("#fetch_message").show(0).delay(3000).hide(0);
-            // for (d in data.data)
-            // {
-            //     $("#name_content").append("<li>" + data.data[d].name + "</li>");
-            //     $("#email_content").append("<li>" + data.data[d].email + "</li>");
-            // }
-
-        } else
-        {
-            $("#fetch_message_failed").text("Failed to fetch data.");
-            $("#fetch_message_failed").show(0).delay(3000).hide(0);
-        }
-
-    </script>
 </body>
 
 </html>
