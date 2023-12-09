@@ -13,7 +13,7 @@
 
     <div class="main">
         <!-- Sing in  Form -->
-        <section class="sign-in">
+        <section id="sign-in">
             <div class="container">
                 <div class="signin-content">
 
@@ -21,7 +21,7 @@
                         <h2 class="form-title">Sign In</h2>
                         <label class="label-agree-term" id="login_message"></label>
                         <label class="label-disagree-term" id="error_message"></label>
-                        <form action="/signin" method="POST" class="register-form" id="login-form">
+                        <form action="/signin" method="POST" class="full-width" id="login-form">
                             <div class="form-group">
                                 <label for="your_email"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="email" id="email" placeholder="Email" />
@@ -80,6 +80,10 @@
                         {
                             $('#login_message').text("Welcome " + data['username'] + ", Login Successfully.");
                             $('#login_message').show(0).delay(3000).hide(0);
+                            setTimeout(function ()
+                            {
+                                window.location = "/participants";
+                            }, 3000);
                         } else
                         {
                             $("#error_message").text("Incorrect Email and Password.");

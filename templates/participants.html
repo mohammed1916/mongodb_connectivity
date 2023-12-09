@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participants</title>
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="main">
+        <!-- Sign up form -->
+        <section id="participants">
+            <div class="container">
+                <h2 class="form-title">Anna university Conference Sign up</h2>
+                <div>
+                    The Conference will be held on 15th and 16th of December 2023. The registration fee is Rs. 500/- per
+                    participant. The registration fee includes conference kit, lunch and refreshments. The registration
+                    fee should be paid through online transfer to the following account. The transaction details should
+                    be sent to the email id: <a href="mailto:sample@gmail.com">sample@gmail.com</a>
+                </div>
+                <div>
+                    <label class="label-agree-term" id="fetch_message"></label>
+                </div>
+                <div>
+                    <label class="label-disagree-term" id="fetch_message_failed"></label>
+                </div>
+                <div class="full-width">
+                    <ul id="name_content">
+                        {% for d in data %}
+                        {% if d.name %}
+                        <li>{{ d.name }}</li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="full-width">
+                    <ul id="email_content">
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename= 'vendor/jquery/jquery.min.js') }}"></script>
+
+    <script type="text/javascript">
+        console.log("status", data);
+        if (data)
+        {
+            $("#fetch_message").text("Data fetched successfully.");
+            $("#fetch_message").show(0).delay(3000).hide(0);
+            // for (d in data.data)
+            // {
+            //     $("#name_content").append("<li>" + data.data[d].name + "</li>");
+            //     $("#email_content").append("<li>" + data.data[d].email + "</li>");
+            // }
+
+        } else
+        {
+            $("#fetch_message_failed").text("Failed to fetch data.");
+            $("#fetch_message_failed").show(0).delay(3000).hide(0);
+        }
+
+    </script>
+</body>
+
+</html>

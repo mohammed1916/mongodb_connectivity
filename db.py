@@ -3,7 +3,7 @@ from flask import request
 
 client = pymongo.MongoClient('mongodb://127.0.0.1:27017/')
 userdb = client['userdb']
-users = userdb.customers
+users = userdb.participants
 
 
 def insert_data():
@@ -40,3 +40,14 @@ def check_user():
 			return False, ""
 		else:
 			return True, user_data["name"]
+		
+def fetch_data():
+	user_data = users.find()
+	if user_data == None:
+		return False, ""
+	else:
+		data =[]
+		for user in user_data:
+			print("user ",user)
+			data.append({"name": user["name"],"email": user["email"]})
+		return True, data

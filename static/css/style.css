@@ -48,7 +48,7 @@ body {
     background: #4292dc; }
 
 
-.register-form {
+.full-width {
   width: 100%; }
 
 .form-group {
@@ -64,7 +64,7 @@ input {
   width: 100%;
   display: block;
   border: none;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid rgb(6, 104, 129);
   padding: 6px 30px;
   box-sizing: border-box; }
   input:focus {

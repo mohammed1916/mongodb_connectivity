@@ -15,6 +15,12 @@ def signup():
     return render_template("signup.html")
 
 
+@app.route('/participants', methods = ['GET', 'POST'])
+def participants():
+    status, data= db.fetch_data()
+    return render_template("participants.html", data = data, status = status)
+
+
 
 @app.route('/signin', methods = ['GET', 'POST'])
 def signin():

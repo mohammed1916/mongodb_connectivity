@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
     <!-- Main css -->
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
@@ -14,13 +13,13 @@
 
     <div class="main">
         <!-- Sign up form -->
-        <section class="signup">
+        <section id="sign-up">
             <div class="container">
                 <h2 class="form-title">Anna university Conference Sign up</h2>
                 <div style="margin-bottom:10px">
                     <label class="label-agree-term" id="error_message"></label>
                 </div>
-                <form method="POST" class="register-form" id="register-form">
+                <form method="POST" class="full-width" id="register-form">
                     <div class="form-group">
                         <label class="label-agree-term" id="signup_message">
                             Registeration Successfull</label>
