@@ -1,14 +1,17 @@
-body {
-  font-family: Cambria, serif;
+h1{
+  font-size: 40px;
+  font-family: Karla, sans-serif;
 }
+
 h2 {
   line-height: 1.66;
   font-weight: bold;
   color: #222;
   font-size: 36px; }
-
-
-body {
+  
+  
+  body {
+  font-family: Cambria, serif;
   font-size: 13px;
   line-height: 1.8;
   color: #222;
