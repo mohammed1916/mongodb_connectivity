@@ -1,0 +1,93 @@
+h2 {
+  line-height: 1.66;
+  font-weight: bold;
+  color: #222;
+  font-size: 36px; }
+
+
+body {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #222;
+  background: #f8f8f8;
+  font-weight: 400;
+}
+
+.container {
+  width: 900px;
+  background: #fff;
+  margin: 0 auto;
+  padding: 75px;
+  box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;}
+
+.position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.form{
+  width: 50%;
+  margin: 100px;
+  overflow: hidden; }
+
+.form-title {
+  margin-bottom: 33px; }
+
+.form-submit {
+  display: inline-block;
+  background: #6dabe4;
+  color: #fff;
+  border-bottom: none;
+  width: auto;
+  padding: 15px 39px;
+  border-radius: 5px;
+  cursor: pointer; }
+  .form-submit:hover {
+    background: #4292dc; }
+
+
+.register-form {
+  width: 100%; }
+
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+  overflow: hidden; }
+.form-group > label {
+  position: relative;
+  padding: 20px;
+}
+
+input {
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 6px 30px;
+  box-sizing: border-box; }
+  input:focus {
+    border-bottom: 1px solid #222; }
+
+label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #222; }
+
+  .label-agree-term {
+    position: relative;
+    margin-top: 10px;
+    padding: 20px;
+    color: green;
+    display: none;
+  }
+
+  .label-disagree-term {
+    position: relative;
+    padding: 20px;
+    color: red;
+    display: none;
+  }
