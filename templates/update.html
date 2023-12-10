@@ -67,10 +67,11 @@
                         </label>
                     </div>
                     <div class="form-button">
-                        <input type="submit" name="{{data['_id']}}" id="signup" class="form-submit" value="Update"
-                            onclick="update(name)" />
+                        <!-- <input type="submit" name="{{data['_id']}}" id="signup" class="form-submit" value="Update"
+                            onclick="update(name)" 
+                            /> -->
+                        <input type="submit" class="form-submit"></input>
                     </div>
-                    <a href="{{ url_for('update', participant_id=data['_id']) }}">Update</a> |
 
                     <a href="{{ url_for('participants') }}">View Participants</a>
                     <!-- <input type="button" name="signup" id="signup" class="form-submit" onclick="update();"

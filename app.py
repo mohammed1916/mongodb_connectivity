@@ -1,6 +1,6 @@
 import db
 import json
-from flask import Flask, request, render_template
+from flask import Flask, render_template, redirect, request, url_for
 
 app = Flask(__name__)
 
@@ -20,15 +20,24 @@ def participants():
     status, data= db.fetch_data()
     return render_template("participants.html", data = data, status = status)
 
-@app.route('/update/<participant_id>')
+@app.route('/update/<participant_id>', methods = ['GET', 'POST'])
 def update(participant_id):
-    status, data= db.fetch_data(participant_id)
-    return render_template("update.html", data = data, status = status)
+    if request.method == "POST":
+        updated_participant = {
+            "$set": {
+                "name": request.form["name"],
+                "email": request.form["email"],
+                "pass": request.form["pass"],
+                "papername": request.form["papername"],
+                "domain": request.form["domain"],
+                "date": request.form["date"]
+            }
+        }
+        db.users.update_one({"_id": db.ObjectId(participant_id)}, updated_participant)
+        return redirect(url_for("participants"))
 
-@app.route('/update/<participant_id>')
-def updateData(participant_id,  methods = ['GET', 'POST']):
-    status, data= db.update_data(participant_id)
-    return render_template("update.html", data = data, status = status)
+    participant = db.users.find_one({"_id": db.ObjectId(participant_id)})
+    return render_template("update.html", data = participant)
 
 @app.route("/delete/<participant_id>", methods = ['GET', 'POST'])
 def delete(participant_id):
