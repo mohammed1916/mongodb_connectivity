@@ -106,7 +106,7 @@
         function update(id)
         {
             console.log(id);
-            fetch(`/update/${id}`)
+            fetch(`/push/${id}`)
                 .then((response) => response.json())
                 .then((data) =>
                 {
@@ -119,18 +119,18 @@
                     $("date").value = data.Date;
                 });
         }
-        fetch(`/update/${id}`)
-            .then((response) => response.json())
-            .then((data) =>
-            {
-                $("name").value = data.name;
-                $("email").value = data.email;
-                $("pass").value = data.pass;
-                // $("repass").value = data.repass;
-                $("papername").value = data.Papername;
-                $("domain").value = data.Domain;
-                $("date").value = data.Date;
-            });
+        // fetch(`/update/${id}`)
+        //     .then((response) => response.json())
+        //     .then((data) =>
+        //     {
+        //         $("name").value = data.name;
+        //         $("email").value = data.email;
+        //         $("pass").value = data.pass;
+        //         // $("repass").value = data.repass;
+        //         $("papername").value = data.Papername;
+        //         $("domain").value = data.Domain;
+        //         $("date").value = data.Date;
+        //     });
 
     </script>
 </body>

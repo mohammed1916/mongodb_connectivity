@@ -24,6 +24,7 @@ def participants():
 def update(participant_id):
     status, data= db.fetch_data(participant_id)
     return render_template("update.html", data = data, status = status)
+
 @app.route('/update/<participant_id>')
 def updateData(participant_id,  methods = ['GET', 'POST']):
     status, data= db.update_data(participant_id)
