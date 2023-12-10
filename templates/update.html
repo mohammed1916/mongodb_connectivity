@@ -49,9 +49,10 @@
                     </div>
                     <div class="form-group">
                         <label for="domain">Domain</label>
-                        <select name="domain" id="domain" value="{{ data['domain']}}" value="{{ data['domain']}}">
-                            <option value="NLP">Natural Laguage Processing</option>
-                            <option value="CV">Computer Vision</option>
+                        <select name="domain" id="domain">
+                            <option value="NLP" {{ 'selected' if data['domain']=='NLP' else '' }}>Natural Laguage
+                                Processing</option>
+                            <option value="CV" {{ 'selected' if data['domain']=='CV' else '' }}>Computer Vision</option>
                         </select>
                     </div>
                     <div class="form-group">
