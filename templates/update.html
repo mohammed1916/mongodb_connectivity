@@ -12,8 +12,7 @@
 <body>
 
     <div class="main">
-        <!-- Sign up form -->
-        <section id="sign-up">
+        <section id="update">
             <div class="container">
                 <h2 class="form-title">Update</h2>
                 <div style="margin-bottom:10px">
@@ -67,73 +66,15 @@
                         </label>
                     </div>
                     <div class="form-button">
-                        <!-- <input type="submit" name="{{data['_id']}}" id="signup" class="form-submit" value="Update"
-                            onclick="update(name)" 
-                            /> -->
                         <input type="submit" class="form-submit"></input>
                     </div>
 
                     <a href="{{ url_for('participants') }}">View Participants</a>
-                    <!-- <input type="button" name="signup" id="signup" class="form-submit" onclick="update();"
-                            value="Update" /> -->
-                    <!-- {% if name == '' or email == '' or pass == '' or repass == '' or date == '' or papername == '' or domain == '' %}
-                            <script>
-                                $("#error_message").text("All fields are required");
-                                $("#error_message").show(0).delay(3000).hide(0);
-                            </script>
-                        {% elif pass != repass %}
-                            <script>
-                                $("#error_message").text("Passwords are not the same");
-                                $("#error_message").show(0).delay(3000).hide(0);
-                            </script>
-                        {% else %}
-                            <script>
-                                setTimeout(function () {
-                                    window.location = "/update/participant_id";
-                                }, 3000);
-                            </script>
-                        {% endif %} -->
                 </form>
             </div>
         </section>
     </div>
 
-    <!-- JS -->
-    <script src="{{ url_for('static', filename= 'vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
-
-    <script type="text/javascript">
-
-        function update(id)
-        {
-            console.log(id);
-            fetch(`/push/${id}`)
-                .then((response) => response.json())
-                .then((data) =>
-                {
-                    $("name").value = data.name;
-                    $("email").value = data.email;
-                    $("pass").value = data.pass;
-                    // $("repass").value = data.repass;
-                    $("papername").value = data.Papername;
-                    $("domain").value = data.Domain;
-                    $("date").value = data.Date;
-                });
-        }
-        // fetch(`/update/${id}`)
-        //     .then((response) => response.json())
-        //     .then((data) =>
-        //     {
-        //         $("name").value = data.name;
-        //         $("email").value = data.email;
-        //         $("pass").value = data.pass;
-        //         // $("repass").value = data.repass;
-        //         $("papername").value = data.Papername;
-        //         $("domain").value = data.Domain;
-        //         $("date").value = data.Date;
-        //     });
-
-    </script>
 </body>
 
 </html>
