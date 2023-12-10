@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="main">
+        <!-- Sign up form -->
+        <section id="sign-up">
+            <div class="container">
+                <h2 class="form-title">Update</h2>
+                <div style="margin-bottom:10px">
+                    <label class="label-agree-term" id="error_message"></label>
+                </div>
+                <form method="POST" action="{{ url_for('update', participant_id=data['_id']) }}" class="full-width"
+                    id="register-form">
+                    <div class="form-group">
+                        <label class="label-agree-term" id="update_message">
+                            Update Successfull</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" value="{{ data['name']}}" placeholder="Your Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Your Email"
+                            value="{{ data['email']}}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Password</label>
+                        <input type="password" name="pass" id="pass" placeholder="Password" value="{{ data['pass']}}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="re-pass">Confirm Password</label>
+                        <input type="password" name="repass" id="repass" placeholder="Repeat your password"
+                            value="{{ data['pass']}}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="papername">Paper Title</label>
+                        <input type="text" name="papername" id="papername" placeholder="Paper Title"
+                            value="{{ data['papername']}}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="domain">Domain</label>
+                        <select name="domain" id="domain" value="{{ data['domain']}}" value="{{ data['domain']}}">
+                            <option value="NLP">Natural Laguage Processing</option>
+                            <option value="CV">Computer Vision</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date of Presentation</label>
+                        <input type="date" name="date" id="date" placeholder="Date (e.g. 2023-12-13 or 2023-12-14)"
+                            min="2023-12-13" max="2023-12-14" value="{{ data['date']}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="agree-term">
+                            <a href="/participants">
+                                << Back</a>
+                        </label>
+                    </div>
+                    <div class="form-button">
+                        <input type="submit" name="{{data['_id']}}" id="signup" class="form-submit" value="Update"
+                            onclick="update(name)" />
+                    </div>
+                    <a href="{{ url_for('update', participant_id=data['_id']) }}">Update</a> |
+
+                    <a href="{{ url_for('participants') }}">View Participants</a>
+                    <!-- <input type="button" name="signup" id="signup" class="form-submit" onclick="update();"
+                            value="Update" /> -->
+                    <!-- {% if name == '' or email == '' or pass == '' or repass == '' or date == '' or papername == '' or domain == '' %}
+                            <script>
+                                $("#error_message").text("All fields are required");
+                                $("#error_message").show(0).delay(3000).hide(0);
+                            </script>
+                        {% elif pass != repass %}
+                            <script>
+                                $("#error_message").text("Passwords are not the same");
+                                $("#error_message").show(0).delay(3000).hide(0);
+                            </script>
+                        {% else %}
+                            <script>
+                                setTimeout(function () {
+                                    window.location = "/update/participant_id";
+                                }, 3000);
+                            </script>
+                        {% endif %} -->
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename= 'vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
+
+    <script type="text/javascript">
+
+        function update(id)
+        {
+            console.log(id);
+            fetch(`/update/${id}`)
+                .then((response) => response.json())
+                .then((data) =>
+                {
+                    $("name").value = data.name;
+                    $("email").value = data.email;
+                    $("pass").value = data.pass;
+                    // $("repass").value = data.repass;
+                    $("papername").value = data.Papername;
+                    $("domain").value = data.Domain;
+                    $("date").value = data.Date;
+                });
+        }
+        fetch(`/update/${id}`)
+            .then((response) => response.json())
+            .then((data) =>
+            {
+                $("name").value = data.name;
+                $("email").value = data.email;
+                $("pass").value = data.pass;
+                // $("repass").value = data.repass;
+                $("papername").value = data.Papername;
+                $("domain").value = data.Domain;
+                $("date").value = data.Date;
+            });
+
+    </script>
+</body>
+
+</html>

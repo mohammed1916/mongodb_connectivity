@@ -20,6 +20,19 @@ def participants():
     status, data= db.fetch_data()
     return render_template("participants.html", data = data, status = status)
 
+@app.route('/update/<participant_id>')
+def update(participant_id):
+    status, data= db.fetch_data(participant_id)
+    return render_template("update.html", data = data, status = status)
+@app.route('/update/<participant_id>')
+def updateData(participant_id,  methods = ['GET', 'POST']):
+    status, data= db.update_data(participant_id)
+    return render_template("update.html", data = data, status = status)
+
+@app.route("/delete/<participant_id>", methods = ['GET', 'POST'])
+def delete(participant_id):
+    status, data= db.delete_data(participant_id)
+    return render_template("participants.html", data = data, status = status)
 
 
 @app.route('/signin', methods = ['GET', 'POST'])

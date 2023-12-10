@@ -33,16 +33,24 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>_id</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for d in data %}
                             {% if d.name and d.email %}
                             <tr>
+                                <td>{{ d._id }}</td>
                                 <td>{{ d.name }}</td>
                                 <td>{{ d.email }}</td>
+                                <td>
+                                    <a href="{{ url_for('update', participant_id=d['_id']) }}">Update</a> |
+                                    <a href="{{ url_for('delete', participant_id=d['_id']) }}"
+                                        onclick="return confirm('Confirm to delete this participant?')">Delete</a>
+                                </td>
                             </tr>
                             {% endif %}
                             {% endfor %}
